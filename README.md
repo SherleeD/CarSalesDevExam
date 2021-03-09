@@ -18,3 +18,30 @@ I used the following:
   - vehicle properties
   - vehicle type properties
 
+
+**BDD Scenarios**
+
+**Scenario 1:** User successfully redirected to Create New Vehicle Page
+GIVEN  User is on the homepage
+WHEN they click Create Car from the dropdown 
+THEN open Create New Vehicle page
+
+**Scenario 2:** User successfully creates a car
+GIVEN  User is on the create new vehicle page
+WHEN they enters all required fields
+THEN a New Vehicle record is created
+
+**Scenario 3:** User does not input Make 
+GIVEN  User is on the create new vehicle page
+WHEN they enters all required fields except Make
+THEN a message "The Make field is required" will appear
+
+**Scenario 4:** User does not input Model
+GIVEN  User is on the create new vehicle page
+WHEN they enters all required fields except Model
+THEN a message "The Model field is required" will appear
+
+**Scenario 5:** User cancel creation of new vehicle
+GIVEN  User is on the create new vehicle page
+WHEN they enters all required fields but click Cancel button
+THEN the system will redirect the user to the Home page
