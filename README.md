@@ -13,6 +13,7 @@ I used the following:
   - endpoint for saving the created vehicle
 
   For the test data I created a script(InsertTestDataScript.sql) to insert prerequisite data for the following:
+  - vehicle types
   - vehicle properties
   - vehicle type properties
 
