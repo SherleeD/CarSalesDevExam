@@ -5,15 +5,10 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 
-using System.Collections.Generic;
-
 using CarSales.Api.Controllers;
-using CarSales.Api.Commands;
 using CarSales.Api.Commands.Vehicles;
 using CarSales.Api.Commands.Vehicles.AddVehicle;
-using CarSales.Api.ViewModels;
 using CarSales.Api.ViewModels.Vehicle;
-using CarSales.Domain.Shared;
 
 using System;
 using System.Net;
@@ -37,7 +32,7 @@ namespace CarSales.UnitTest.Api
         }
 
         [Fact]
-        public async void NoVehicleTypeId_ReturnsNoBadRequest()
+        public async void NoVehicleTypeId_ReturnsBadRequest()
         {
             // Arrange
             int vehicleTypeId = 0;

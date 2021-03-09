@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 using Xunit;
 
 using CarSales.Api.Commands.Vehicles.AddVehicle;
-using CarSales.Api.Interfaces;
-using CarSales.Api.Services;
-
-    
+using CarSales.Api.Interfaces;   
 
 namespace CarSales.UnitTest.Api
 {
@@ -47,9 +44,6 @@ namespace CarSales.UnitTest.Api
             Assert.Equal(Convert.ToString(HttpStatusCode.OK), result.Message);
             Assert.NotNull(result.MessageDetails);
             Assert.Equal(result.VehicleId, result.VehicleId);
-
-
         }
-
     }
 }

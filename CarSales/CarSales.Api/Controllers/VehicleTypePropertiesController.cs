@@ -72,7 +72,7 @@ namespace CarSales.Api.Controllers
                 {
                     StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest),
                     Message = Convert.ToString(HttpStatusCode.BadRequest),
-                    MessageDetail = "Get group detail request failed. Exception error message: " + ex.ToString()
+                    MessageDetail = "Get vehicle type properties request failed. Exception error message: " + ex.ToString()
                 });
             }
         }

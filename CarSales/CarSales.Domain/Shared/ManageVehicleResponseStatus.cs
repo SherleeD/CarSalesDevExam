@@ -15,7 +15,7 @@ namespace CarSales.Domain.Shared
     {        
         public static string NoVehicleTypeId = "No vehicle type id found.";
         public static string VehicleTypePropertyListRetrieveFailed = "Error retrieving vehicle type properties.";
-        public static string VehicleTypePropertyListRetrieveSuccessful = "Vehicle type property list retrieve successful";
+        public static string VehicleTypePropertyListRetrieveSuccessful = "Vehicle type property list retrieve successful.";
 
     }
 

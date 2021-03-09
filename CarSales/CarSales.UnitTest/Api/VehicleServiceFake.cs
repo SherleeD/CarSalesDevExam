@@ -2,14 +2,10 @@
 using CarSales.Api.Interfaces;
 using CarSales.Application.Vehicles.Commands.CreateVehicle;
 
-
 using Microsoft.Extensions.Logging;
 
 using Moq;
 
-using System;
-using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 using CarSales.Application.OtherProperties.Commands.CreateVehicleOtherProperty;
 
