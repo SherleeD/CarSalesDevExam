@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col=md-12">
+
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Create New Vehicle
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Vehicle/Add/?vehicleTypeId=1" >Create Car</a>                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

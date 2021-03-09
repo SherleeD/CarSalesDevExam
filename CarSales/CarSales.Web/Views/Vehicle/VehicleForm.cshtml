@@ -1,0 +1,136 @@
+﻿@model CarSales.Web.Models.VehicleViewModel
+@{
+    Layout = "_Layout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-header">
+                    <h4 class="card-title">@Model.Heading</h4>
+                </div>
+
+
+                <form class="form" method="post" asp-controller="Vehicle" asp-action="@Model.Action">
+
+                    <!-- Hidden Fields -->
+                    <input type="hidden" asp-for="VehicleId" />
+                    <input type="hidden" asp-for="VehicleTypeId" />
+
+
+                    <input type="hidden" id="PropertyValues" asp-for="VehicleOtherPropertyValues" />
+                    <input type="hidden" id="PropertyValuesIds" asp-for="VehicleOtherPropertyValuesIds" />
+                    
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="data-entry-form">
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Vehicle Type *</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" asp-for="VehicleTypeId" value="Car" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Make *</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" asp-for="Make">
+                                @{if (ViewBag.ErrorMsg != null)
+                                    {
+                                        <span asp-validation-for="Make" class="text-danger">@ViewBag.ErrorMsg</span>
+                                    }
+                                    else
+                                    {
+                                        <span asp-validation-for="Make" class="text-danger"></span>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Model *</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" asp-for="Model">
+                                @{if (ViewBag.ErrorMsg != null)
+                                    {
+                                        <span asp-validation-for="Model" class="text-danger">@ViewBag.ErrorMsg</span>
+                                    }
+                                    else
+                                    {
+                                        <span asp-validation-for="Model" class="text-danger"></span>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Vehicle dynamic properties -->
+                        <div class="form-group row">
+                            @await Html.PartialAsync("_VehicleOtherProperties")
+
+                        </div>
+
+                    </div>
+
+                    <div class="toolbar">
+                        <a id="btnCancel" href="/Home/Index" class="btn btn-outline-secondary">Cancel</a>
+                        <button id="btnSave" type="submit" class="btn btn-primary">Save</button>
+                    </div>
+
+                    <input type="hidden" asp-for="VehicleOtherPropertyIds" />
+                    <input type="hidden" asp-for="VehicleOtherPropertyNames" />
+
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnSave").click(function () {
+
+                var propertyNameValues = "";
+                var propertyNameValuesIds = "";
+
+                $("table tbody tr").each(function () {                    
+                    var textval = $(this).find("td").eq(1).find("input").val();                                        
+                    var textvalId = $(this).find("td").eq(1).find("input").attr('id').split("_")[1];                    
+
+                    if (propertyNameValues == "") {
+                        propertyNameValues = textval + "|";
+                    }
+                    else {
+                        propertyNameValues = propertyNameValues + textval + "|";
+                    }                  
+
+                    if (propertyNameValuesIds == "") {
+                        propertyNameValuesIds = textvalId + "|";
+                    }
+                    else {
+                        propertyNameValuesIds = propertyNameValuesIds + textvalId + "|";
+                    } 
+                })
+
+                //store values to hidden fields
+                $("#PropertyValues").val(propertyNameValues.slice(0, -1));
+                $("#PropertyValuesIds").val(propertyNameValuesIds.slice(0, -1));
+               
+            });
+        });
+    </script>
+
+}

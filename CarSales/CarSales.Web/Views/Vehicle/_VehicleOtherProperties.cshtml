@@ -1,0 +1,22 @@
+﻿
+<table id="tableVehicleOtherProperty" class="table table-striped table-no-bordered table-hover table-otherpropertyform" cellspacing="0" width="100%" style="width:100%">
+    <thead></thead>
+
+    <tbody>
+        @{
+            int counter = 0;
+        }
+        @foreach (var propertyId in Model.VehicleOtherPropertyIds)
+        {
+            <tr>
+                <td>                    
+                    @Model.VehicleOtherPropertyNames[counter]
+                </td>
+                <td>
+                    <input id="PropertyValue_@propertyId" class="form-control width100" />
+                </td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>
