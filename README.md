@@ -7,10 +7,11 @@ I used the following:
  - Implemented Clean Architecture using MediatR and CQRS design pattern.
  - For unit testing XUnit and Moq
  - For the frontend I use ASP.NET Core Web Application MVC
+ - I use Postman to test my api endppoint
 
  The web api has the following endpints:
-  - endpoint for listing the vehicle type properties
-  - endpoint for saving the created vehicle
+  - endpoint for listing the vehicle type properties (get: /api/VehicleTypeProperties/1)
+  - endpoint for saving the created vehicle (post: /api/vehicle )
 
   For the test data I created a script(InsertTestDataScript.sql) to insert prerequisite data for the following:
   - vehicle types
